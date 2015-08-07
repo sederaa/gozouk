@@ -66,135 +66,83 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <!-- Today -->
-    <section class="success" id="events" style="padding-top: 200px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Today</h2>
-                    Tuesday, 21 July 2015
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2 col-lg-offset-4">
-                    <p>6:30pm</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Classes at Zouk Art Oh My God!!!!</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div style="height: 100px;">
+    </div>
+ 
+    
+    <div id="content"></div>
+    <script type="text/jsx">
+        var data = [
+          {day: "Today", date: "Monday, 3 August 2015", events: [{time: "8pm", title: "Social at The Paddington!"}, {time: "8pm", title: "Social at The Paddington!"}]},
+          {day: "Tomorrow", date: "Tuesday, 4 August 2015", events: [{time: "8pm", title: "Social at The Paddington!"}, {time: "8pm", title: "Social at The Paddington!"}]},
+          {day: "Wednesday", date: "Wednesday, 5 August 2015", events: [{time: "8pm", title: "Social at The Paddington!"}, {time: "8pm", title: "Social at The Paddington!"}]},
+          {day: "Thursday", date: "Thursday, 6 August 2015", events: [{time: "8pm", title: "Social at The Paddington!"}, {time: "8pm", title: "Social at The Paddington!"}]},
+          {day: "Friday", date: "Friday, 7 August 2015", events: [{time: "8pm", title: "Social at The Paddington!"}, {time: "8pm", title: "Social at The Paddington!"}]}
+        ];        
+        
+        var EventList = React.createClass({
+            render: function() {
+                var dayNodes = this.props.data.map(function (item, index) {
+                    return (
+                        <Day index={index} day={item.day} date={item.date} events={item.events} />
+                    );
+                });
+            
+                return (
+                   <div id="days">
+                       {dayNodes}
+                   </div>
+                );
+            } 
+        });
 
-    <!-- Tomorrow -->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Tomorrow</h2>
-                    Thursday, 23 July 2015
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2 col-lg-offset-4">
-                    <p>8pm</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Social at The Paddington!</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        var Day = React.createClass({
+            render: function() {
+                var alt = this.props.index % 2 == 0;
+            
+                var eventNodes = this.props.events.map(function (item, index) {
+                    return (
+                        <Event index={index} time={item.time} title={item.title} />
+                    );
+                });
+            
+                return (
+                    <section className={alt ? "success" : ""}>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12 text-center">
+                                    <h2>{this.props.day}</h2>
+                                    {this.props.date}
+                                    <hr className={alt ? "star-light" : "star-primary"} />
+                                </div>
+                            </div>
+                            {eventNodes}
+                        </div>
+                    </section>                
+                );
+            }
+        });
 
+        var Event = React.createClass({
+            render: function() {
+                return (
+                    <div className="row">
+                        <div className="col-lg-2 col-lg-offset-4">
+                            <p>{this.props.time}</p>
+                        </div>
+                        <div className="col-lg-4">
+                            <p>{this.props.title}</p>
+                        </div>
+                    </div>
+                );
+            }
+        });
 
-    <!-- Today -->
-    <section class="success">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Today</h2>
-                    Tuesday, 21 July 2015
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2 col-lg-offset-4">
-                    <p>6:30pm</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Classes at Zouk Art Oh My God!!!!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tomorrow -->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Tomorrow</h2>
-                    Thursday, 23 July 2015
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2 col-lg-offset-4">
-                    <p>8pm</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Social at The Paddington!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Today -->
-    <section class="success">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Today</h2>
-                    Tuesday, 21 July 2015
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2 col-lg-offset-4">
-                    <p>6:30pm</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Classes at Zouk Art Oh My God!!!!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tomorrow -->
-    <section id="classes">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Tomorrow</h2>
-                    Thursday, 23 July 2015
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2 col-lg-offset-4">
-                    <p>8pm</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Social at The Paddington!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+        React.render(
+          <EventList data={data} />,
+          document.getElementById('content')
+        );
+    </script>
 
     <!-- Footer -->
     <footer class="text-center">
@@ -247,11 +195,16 @@
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
+    <script src="//fb.me/react-0.13.3.js"></script>
+    <script src="//fb.me/JSXTransformer-0.13.3.js"></script>
+    <script src="//cdn.jsdelivr.net/refluxjs/0.2.11/reflux.min.js"></script>
+    
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
+
 
 </body>
 
