@@ -68,8 +68,8 @@
 
     <div style="height: 100px;">
     </div>
- 
-    
+
+
     <div id="content"></div>
     <script type="text/jsx">
         var data = [
@@ -78,8 +78,8 @@
           {day: "Wednesday", date: "Wednesday, 5 August 2015", events: [{time: "8pm", title: "Social at The Paddington!"}, {time: "8pm", title: "Social at The Paddington!"}]},
           {day: "Thursday", date: "Thursday, 6 August 2015", events: [{time: "8pm", title: "Social at The Paddington!"}, {time: "8pm", title: "Social at The Paddington!"}]},
           {day: "Friday", date: "Friday, 7 August 2015", events: [{time: "8pm", title: "Social at The Paddington!"}, {time: "8pm", title: "Social at The Paddington!"}]}
-        ];        
-        
+        ];
+
         var EventList = React.createClass({
             render: function() {
                 var dayNodes = this.props.data.map(function (item, index) {
@@ -87,25 +87,25 @@
                         <Day index={index} day={item.day} date={item.date} events={item.events} />
                     );
                 });
-            
+
                 return (
                    <div id="days">
                        {dayNodes}
                    </div>
                 );
-            } 
+            }
         });
 
         var Day = React.createClass({
             render: function() {
                 var alt = this.props.index % 2 == 0;
-            
+
                 var eventNodes = this.props.events.map(function (item, index) {
                     return (
                         <Event index={index} time={item.time} title={item.title} />
                     );
                 });
-            
+
                 return (
                     <section className={alt ? "success" : ""}>
                         <div className="container">
@@ -118,7 +118,7 @@
                             </div>
                             {eventNodes}
                         </div>
-                    </section>                
+                    </section>
                 );
             }
         });
@@ -198,13 +198,16 @@
     <script src="//fb.me/react-0.13.3.js"></script>
     <script src="//fb.me/JSXTransformer-0.13.3.js"></script>
     <script src="//cdn.jsdelivr.net/refluxjs/0.2.11/reflux.min.js"></script>
-    
+
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="scripts/bootstrap.min.js"></script>-->
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/freelancer.js"></script>
+    <!--<script src="scripts/freelancer.js"></script>-->
 
+    <!-- build:js(.tmp) scripts/app.js -->
+    <script src="scripts/bundle/app.js"></script>
+    <!-- endbuild -->
 
 </body>
 

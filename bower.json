@@ -1,0 +1,20 @@
+{
+  "name": "gozouk3",
+  "version": "0.0.0",
+  "authors": [
+    "Seb de Raadt"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
