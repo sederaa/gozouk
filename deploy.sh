@@ -111,25 +111,29 @@ if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
   cd - > /dev/null
 fi
 
+echo NPM packages installed. Installing Bower packages...
+
 # 4. Install bower packages
 if [ -e "$DEPLOYMENT_SOURCE/bower.json" ]; then
   cd "$DEPLOYMENT_SOURCE"
-  #eval $NPM_CMD install bower
-  #exitWithMessageOnError "installing bower failed"
   ./node_modules/.bin/bower install
   exitWithMessageOnError "bower failed"
   cd - > /dev/null
 fi
 
+echo Bower packages installed. Running Gulp...
+
 # 5. Run gulp
 if [ -e "$DEPLOYMENT_SOURCE/gulpfile.js" ]; then
   cd "$DEPLOYMENT_SOURCE"
-  #eval $NPM_CMD install gulp
-  #exitWithMessageOnError "installing gulp failed"
+  echo "Current directory:"
+  pwd
   ./node_modules/.bin/gulp
   exitWithMessageOnError "gulp failed"
   cd - > /dev/null
 fi
+
+echo Gulp run successfully. Running KuduSync...
 
 # 1. KuduSync
 if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
