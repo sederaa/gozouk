@@ -128,12 +128,12 @@ if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
 fi
 
 # 5. Run gulp
-#if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
-#  cd "$DEPLOYMENT_TARGET"
-#  eval $NPM_CMD ./node_modules/.bin/gulp
-#  exitWithMessageOnError "gulp failed"
-#  cd - > /dev/null
-#fi
+if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  ./node_modules/.bin/gulp
+  exitWithMessageOnError "gulp failed"
+  cd - > /dev/null
+fi
 
 ##################################################################################################################################
 
