@@ -79,22 +79,22 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('copy-images', function() {
-  return gulp.src('app/img/*')
+  return gulp.src(['app/img/**/*.*', 'app/img/*.*'])
     .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('copy-css', function() {
-  return gulp.src('app/css/*')
+  return gulp.src(['app/css/**/*.*', 'app/css/*.*'])
     .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('copy-font-awesome', function() {
-  return gulp.src('app/font-awesome/*')
+  return gulp.src(['app/font-awesome/**/*.*', 'app/font-awesome/*.*'])
     .pipe(gulp.dest('dist/font-awesome'));
 });
 
 gulp.task('copy-fonts', function() {
-  return gulp.src('app/fonts/*')
+  return gulp.src(['app/fonts/**/*.*', 'app/fonts/*.*'])
     .pipe(gulp.dest('dist/fonts'));
 });
 
