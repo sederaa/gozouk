@@ -78,27 +78,27 @@ gulp.task('scripts', function() {
   }
 });
 
-gulp.task('images', function() {
+gulp.task('copy-images', function() {
   return gulp.src('app/img/*')
     .pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('css', function() {
+gulp.task('copy-css', function() {
   return gulp.src('app/css/*')
     .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('font-awesome', function() {
+gulp.task('copy-font-awesome', function() {
   return gulp.src('app/font-awesome/*')
     .pipe(gulp.dest('dist/font-awesome'));
 });
 
-gulp.task('font-awesome', function() {
+gulp.task('copy-fonts', function() {
   return gulp.src('app/fonts/*')
     .pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('static', function() {
+gulp.task('copy-root-files', function() {
   return gulp.src(['app/*.txt', 'app/*.ico'])
     .pipe(gulp.dest('dist'));
 })
@@ -161,8 +161,8 @@ gulp.task('serve', function() {
 gulp.task('build', function() {
   env = 'prod';
   runSequence(['clean:dev', 'clean:dist'],
-              ['scripts'],
-              'bundle', 'static');
+              ['scripts', 'copy-root-files', 'copy-images', 'copy-fonts', 'copy-font-awesome', 'copy-css'],
+              'bundle');
 });
 
 gulp.task('default', ['build']);
