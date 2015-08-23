@@ -78,7 +78,6 @@ gulp.task('scripts', function() {
   }
 });
 
-/*
 gulp.task('images', function() {
   return gulp.src('app/img/*')
     .pipe(gulp.dest('dist/img'));
@@ -93,9 +92,14 @@ gulp.task('font-awesome', function() {
   return gulp.src('app/font-awesome/*')
     .pipe(gulp.dest('dist/font-awesome'));
 });
-*/
+
+gulp.task('font-awesome', function() {
+  return gulp.src('app/fonts/*')
+    .pipe(gulp.dest('dist/fonts'));
+});
+
 gulp.task('static', function() {
-  return gulp.src(['app/*.txt', 'app/*.ico', 'app/img', 'app/css', 'app/font-awesome', 'app/fonts'])
+  return gulp.src(['app/*.txt', 'app/*.ico'])
     .pipe(gulp.dest('dist'));
 })
 
