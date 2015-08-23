@@ -1,8 +1,8 @@
 var gulp          = require('gulp');
 
 var $             = require('gulp-load-plugins')();
-var del           = require('del');
 var source        = require('vinyl-source-stream');
+var del           = require('del');
 var browserify    = require('browserify');
 var preprocessify = require('preprocessify');
 var runSequence   = require('run-sequence');
